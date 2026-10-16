@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://doh0w0if3r85g"]
+
+[ext_resource type="Script" uid="uid://dpswl646rkq83" path="res://character_new.gd" id="1_7egtf"]
+[ext_resource type="PackedScene" uid="uid://cojfewt2lbjwm" path="res://shotgun.glb" id="2_pjt0s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8wiiv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3y4jd"]
+
+[sub_resource type="Animation" id="Animation_wa5vi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0074155014, -0.6461935, -1.3836132)]
+}
+
+[sub_resource type="Animation" id="Animation_pjt0s"]
+resource_name = "shoot"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7),
+"transitions": PackedFloat32Array(1, 0.14865103, 1),
+"update": 0,
+"values": [Vector3(-0.0074155014, -0.6461935, -1.3836132), Vector3(-0.022, -0.756, -0.619), Vector3(-0.0074155014, -0.6461935, -1.3836132)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wa5vi"]
+_data = {
+&"RESET": SubResource("Animation_wa5vi"),
+&"shoot": SubResource("Animation_pjt0s")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wa5vi"]
+spread = 25.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+damping_min = 4.0
+damping_max = 6.0000005
+scale_min = 0.02
+scale_max = 0.5
+color = Color(1, 0.84313726, 0.5254902, 1)
+hue_variation_min = -0.20000002
+hue_variation_max = 0.16999997
+
+[sub_resource type="Gradient" id="Gradient_wa5vi"]
+colors = PackedColorArray(0.87058824, 0.34901962, 0.011764706, 1, 1, 0.7372549, 0.2627451, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pjt0s"]
+gradient = SubResource("Gradient_wa5vi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjt0s"]
+blend_mode = 1
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_color = Color(1, 0.72156864, 0.48235294, 1)
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 1.5
+emission_on_uv2 = true
+emission_texture = SubResource("GradientTexture1D_pjt0s")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_0qfo5"]
+material = SubResource("StandardMaterial3D_pjt0s")
+
+[node name="character" type="CharacterBody3D" unique_id=1420645025]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_7egtf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1911642628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_8wiiv")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=563037865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_3y4jd")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1649209378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="shotgun2" parent="Camera3D" unique_id=1392738667 instance=ExtResource("2_pjt0s")]
+transform = Transform3D(0.011878815, 1.9665906e-07, 12.63653, 7.878953e-08, 3.306757, -7.531953e-07, -2.6674716, 9.8547986e-08, 0.05627311, -0.0074155014, -0.6461935, -1.3836132)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/shotgun2" unique_id=1917845759]
+libraries/ = SubResource("AnimationLibrary_wa5vi")
+
+[node name="Muzzle" type="Marker3D" parent="Camera3D/shotgun2" unique_id=2110550567]
+transform = Transform3D(1, -3.5527133e-15, -1.7462298e-10, 3.5527137e-15, 0.9999999, -4.1598673e-15, 1.7462298e-10, 4.159867e-15, 1, 0.3072136, 0.03645116, -0.0002887929)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/shotgun2/Muzzle" unique_id=1416872382]
+visible = false
+light_color = Color(0.9882353, 0.8039216, 0.54901963, 1)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D/shotgun2/Muzzle" unique_id=1025952421]
+transform = Transform3D(1, -3.5527137e-15, 1.8626451e-09, 0, 0.9999999, 2.0539126e-15, -5.820766e-11, -1.1657342e-15, 1, 0.110189736, 0, -0.00010358263)
+emitting = false
+amount = 12
+lifetime = 0.24000000000000002
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wa5vi")
+draw_pass_1 = SubResource("QuadMesh_0qfo5")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D/shotgun2/Muzzle" unique_id=1569809127]
+transform = Transform3D(0.007101713, -0.9999743, 0.0009333808, 0.999974, 0.0071008364, -0.00093999825, 0.0009333462, 0.00094002916, 0.999999, 0.03574288, 0, -3.359979e-05)

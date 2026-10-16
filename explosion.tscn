@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://b48kfvm05bbhy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xe0w7"]
+albedo_color = Color(1, 0.19215687, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.81960785, 0.36078432, 1)
+emission_energy_multiplier = 1.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_7rj46"]
+material = SubResource("StandardMaterial3D_xe0w7")
+radius = 1.0
+height = 2.0
+radial_segments = 5
+
+[sub_resource type="Animation" id="Animation_7rj46"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q7epf"]
+resource_name = "explode"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.12848547, 0.2),
+"transitions": PackedFloat32Array(1.5691689, 1.6817952, 6.498043, 0.069348134),
+"update": 0,
+"values": [Vector3(0.035, 0.035, 0.035), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.035000026, 0.035000026, 0.035000026)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxas0"]
+_data = {
+&"RESET": SubResource("Animation_7rj46"),
+&"explode": SubResource("Animation_q7epf")
+}
+
+[node name="Explosion" type="Node3D" unique_id=1174496427]
+
+[node name="Explosion" type="CSGMesh3D" parent="." unique_id=893635722]
+mesh = SubResource("SphereMesh_7rj46")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion" unique_id=1962887712]
+libraries/ = SubResource("AnimationLibrary_vxas0")
