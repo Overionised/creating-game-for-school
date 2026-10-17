@@ -94,10 +94,13 @@ size = Vector3(2.5, 0.5, 3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxeai"]
 size = Vector3(3, 0.5, 3)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tlwt5"]
+data = PackedVector3Array(-1.5, -0.25, 1.5, -1.5, -0.25, -1.5, -1.5, 0.25, -1.5, 1.5, -0.25, -1.5, -1.5, -0.25, -1.5, -1.5, -0.25, 1.5, -1.5, 0.25, -1.5, -1.5, -0.25, -1.5, 1.5, -0.25, -1.5, -1.5, 0.25, -1.5, -1.5, 0.25, 1.5, -1.5, -0.25, 1.5, -1.5, -0.25, 1.5, -1.5, 0.25, 1.5, 1.5, 0.25, 1.5, 1.5, 0.25, 1.5, -1.5, 0.25, 1.5, -1.5, 0.25, -1.5, -1.5, -0.25, 1.5, 1.5, -0.25, 1.5, 1.5, -0.25, -1.5, 1.5, 0.25, 1.5, 1.5, -0.25, 1.5, -1.5, -0.25, 1.5, 1.5, -0.25, -1.5, 1.5, -0.25, 1.5, 1.5, 0.25, 1.5, 1.5, -0.25, -1.5, 1.5, 0.25, -1.5, -1.5, 0.25, -1.5, -1.5, 0.25, -1.5, 1.5, 0.25, -1.5, 1.5, 0.25, 1.5, 1.5, 0.25, 1.5, 1.5, 0.25, -1.5, 1.5, -0.25, -1.5)
+
 [node name="World" type="Node3D" unique_id=500693454]
 
 [node name="character" parent="." unique_id=14438740 instance=ExtResource("2_7bd7c")]
-transform = Transform3D(-1, 2.98023e-08, -8.74228e-08, 2.98023e-08, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
+transform = Transform3D(-1, 2.98023e-08, -8.74228e-08, 2.98023e-08, 1, 0, 8.74228e-08, 0, -1, -2.0000005, 1, -7)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1579824688]
 environment = SubResource("Environment_g3bud")
@@ -132,10 +135,10 @@ material = SubResource("StandardMaterial3D_13kt2")
 shape = SubResource("BoxShape3D_dmhl4")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1122133482]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.408203, 0, -18.431305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.756836, 0, 4.7755127)
 use_collision = true
 collision_mask = 7
-size = Vector3(107.33008, 2, 98.413635)
+size = Vector3(51, 2, 52)
 material = SubResource("ShaderMaterial_rwhea")
 
 [node name="AnimationBody3D3" type="AnimatableBody3D" parent="." unique_id=252057511]
@@ -144,16 +147,16 @@ collision_layer = 6
 collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimationBody3D3" unique_id=1688539458]
-transform = Transform3D(1, 0, 0, 0, 1, 1.56635e-22, 0, 6.94832e-23, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 1.5663516e-22, 0, 6.948334e-23, 1, 0.0002670288, 4.386902e-05, -0.0055332184)
 shape = SubResource("BoxShape3D_qmir8")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="AnimationBody3D3" unique_id=1494494391]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+transform = Transform3D(1, -1.0587912e-22, 2.9802301e-08, 0, 1, 3.7252903e-09, 0, 3.7252903e-09, 1, 0.0002670288, 4.386902e-05, -0.0055332184)
 size = Vector3(3, 2, 0.5)
 material = SubResource("ShaderMaterial_fbvl3")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="AnimationBody3D3" unique_id=610758121]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+transform = Transform3D(1, -1.0587912e-22, 2.9802301e-08, 0, 1, 3.7252903e-09, 0, 3.7252903e-09, 1, 0.0002670288, 4.386902e-05, -0.0055332184)
 size = Vector3(3, 2, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=697413908]
@@ -184,7 +187,7 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1,
 size = Vector3(7, 2, 0.5)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="StaticProps" unique_id=523524556]
-transform = Transform3D(-7.23586e-16, 1, -4.37114e-08, 5.21541e-08, -4.37114e-08, -1, -1, -1.33227e-15, -5.21541e-08, -6.75, 3.75, 3.55)
+transform = Transform3D(4.3701984e-08, 1, -9.0714564e-10, -0.010691181, -4.3986859e-10, -0.99994284, -0.99994284, 4.3709186e-08, 0.010691181, -6.75, 8.774101, 10.597066)
 collision_layer = 6
 collision_mask = 7
 
@@ -202,7 +205,7 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1,
 size = Vector3(3, 2, 0.5)
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="StaticProps" unique_id=2144143423]
-transform = Transform3D(-7.23586e-16, 1, -4.37114e-08, 5.21541e-08, -4.37114e-08, -1, -1, -1.33227e-15, -5.21541e-08, 0.75, 3.75, 3.55)
+transform = Transform3D(-7.23586e-16, 1, -4.37114e-08, 5.21541e-08, -4.37114e-08, -1, -1, -1.33227e-15, -5.21541e-08, 13.99037, 11.047988, 11.498686)
 collision_layer = 6
 collision_mask = 7
 
@@ -238,7 +241,7 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 3.72529e-09, 1.64203e-15, 3.725
 size = Vector3(2, 0.5, 0.5)
 
 [node name="StaticBody3D8" type="StaticBody3D" parent="StaticProps" unique_id=1808205491]
-transform = Transform3D(1, -4.37114e-08, 5.21541e-08, 5.21541e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 3.25, 2.5, 4.8)
+transform = Transform3D(1, -4.37114e-08, 5.21541e-08, 5.21541e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 3.249999, 11.44199, 13.888499)
 collision_layer = 6
 collision_mask = 7
 
@@ -252,11 +255,11 @@ size = Vector3(2, 0.5, 3)
 material = SubResource("ShaderMaterial_fbvl3")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="StaticProps/StaticBody3D8" unique_id=319359025]
-transform = Transform3D(1, 0, 2.9802303e-08, 0, 1, 3.7252903e-09, 1.6420274e-15, 3.7252903e-09, 1, 4.425631, -9.536743e-07, 2.3841858e-07)
+transform = Transform3D(1, 0, 2.9802303e-08, 0, 1, 3.7252903e-09, 1.6420274e-15, 3.7252903e-09, 1, 0.004008769, 0.00924778, 2.3845303e-07)
 size = Vector3(2, 0.5, 3)
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="StaticProps" unique_id=254790829]
-transform = Transform3D(-8.74228e-08, -1, 4.37114e-08, 5.21541e-08, -4.37114e-08, -1, 1, -8.74228e-08, 5.21541e-08, 4.5, 2.5, 3.55)
+transform = Transform3D(-8.74228e-08, -1, 4.37114e-08, 5.21541e-08, -4.37114e-08, -1, 1, -8.74228e-08, 5.21541e-08, -7.4999986, 2.4999988, -13.450001)
 collision_layer = 6
 collision_mask = 7
 
@@ -268,13 +271,18 @@ shape = SubResource("BoxShape3D_rxeai")
 transform = Transform3D(1, -8.47033e-22, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
 size = Vector3(3, 0.5, 3)
 material = SubResource("ShaderMaterial_fbvl3")
+metadata/_edit_group_ = true
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="StaticProps/StaticBody3D6" unique_id=1107996918]
+transform = Transform3D(1, -8.47033e-22, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_tlwt5")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="StaticProps/StaticBody3D6" unique_id=264843991]
 transform = Transform3D(1, -8.47033e-22, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
 size = Vector3(3, 0.5, 3)
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="StaticProps" unique_id=758921614]
-transform = Transform3D(-8.74228e-08, -1, 4.37114e-08, 5.21541e-08, -4.37114e-08, -1, 1, -8.74228e-08, 5.21541e-08, 2, 2.5, 3.55)
+transform = Transform3D(-8.74228e-08, -1, 4.37114e-08, 5.21541e-08, -4.37114e-08, -1, 1, -8.74228e-08, 5.21541e-08, -3.9999986, 2.499999, -13.450001)
 collision_layer = 6
 collision_mask = 7
 
@@ -283,7 +291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 1.56635e-22, 0, 6.94833e-23, 1, 0, 0, -4.
 shape = SubResource("BoxShape3D_rxeai")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="StaticProps/StaticBody3D7" unique_id=856791616]
-transform = Transform3D(1, -8.47033e-22, 2.98023e-08, 0, 1, 3.72529e-09, 0, 3.72529e-09, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 2.9802301e-08, 0, 1, 3.7252903e-09, 0, 3.7252892e-09, 1, 0, 0, 0)
 size = Vector3(3, 0.5, 3)
 material = SubResource("ShaderMaterial_fbvl3")
 
