@@ -38,7 +38,6 @@ func _physics_process(delta):
 	else:
 		global_position = to
 var exploded := false
-
 func explode():
 	if exploded:
 		return
@@ -49,19 +48,24 @@ func explode():
 		var dist = global_position.distance_to(player.global_position)
 		
 		if dist <= BLAST_RADIUS:
-			# Falloff factor: 1.0 at explosion center, drops to 0.0 at edge
 			var falloff = 1.0 - (dist / BLAST_RADIUS)
-			
-			# Direction away from explosion
 			var dir = (player.global_position - global_position).normalized()
-			
-			# Give upward lift for rocket jumps
 			dir.y = max(dir.y + 0.5, 0.5)
 			
 			var impulse = dir.normalized() * (BLAST_FORCE * falloff)
-			
-			print("Explosion hit player with impulse: ", impulse) # Debug verification
+			print("Explosion hit player with impulse: ", impulse)
 			player.apply_knockback(impulse)
+
+	# --- Audio FX (Spawned into the main scene so queue_free doesn't kill it) ---
+		var sfx = AudioStreamPlayer3D.new()
+		sfx.stream = load("res://sfx/explosion-sfx.wav")
+		sfx.pitch_scale = randf_range(0.98, 1.02) 
+		sfx.volume_db = linear_to_db(0.2)
+		get_tree().current_scene.add_child(sfx)
+		sfx.global_position = global_position
+		sfx.finished.connect(sfx.queue_free)
+		sfx.play()
+
 
 	# --- Visual FX Setup ---
 	var e = EXPLOSION.instantiate()

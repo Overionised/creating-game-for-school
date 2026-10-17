@@ -112,14 +112,14 @@ transform = Transform3D(0.007863717, 1.9665906e-07, 12.63653, 5.2158285e-08, 3.3
 libraries/ = SubResource("AnimationLibrary_wa5vi")
 
 [node name="Muzzle" type="Marker3D" parent="Camera3D/weaponholder/shotgun2" unique_id=2110550567]
-transform = Transform3D(1, -3.5527133e-15, -1.7462298e-10, 3.5527137e-15, 0.9999999, -4.1598673e-15, 1.7462298e-10, 4.159867e-15, 1, 0.2797182, 0.03645116, -0.0002887929)
+transform = Transform3D(1, -3.5527133e-15, -1.7462298e-10, 3.5527137e-15, 0.9999999, -4.1598673e-15, 1.7462298e-10, 4.159867e-15, 1, 0.15862928, 0.03645116, -0.00028879291)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/weaponholder/shotgun2/Muzzle" unique_id=1416872382]
 visible = false
 light_color = Color(0.9882353, 0.8039216, 0.54901963, 1)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D/weaponholder/shotgun2/Muzzle" unique_id=1025952421]
-transform = Transform3D(1, -3.5527137e-15, 1.8626451e-09, 0, 0.9999999, 2.0539126e-15, -5.820766e-11, -1.1657342e-15, 1, 0.2454989, 2.2204458e-16, -0.00010358263)
+transform = Transform3D(1, -3.5527137e-15, 1.8626451e-09, 0, 0.9999999, 2.0539126e-15, -5.820766e-11, -1.1657342e-15, 1, 0.3791424, 4.4408916e-16, -0.000103582635)
 emitting = false
 amount = 12
 lifetime = 0.24

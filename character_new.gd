@@ -83,8 +83,8 @@ func _ready():
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * .01)
-		camera.rotate_x(-event.relative.y * .01)
+		rotate_y(-event.relative.x * .005)
+		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 
 func _unhandled_key_input(event):
@@ -177,6 +177,14 @@ func _physics_process(delta):
 			gun_anim.play("shoot")
 			muzzle_flash()
 			apply_knockback(camera.global_transform.basis.z * 6.0)
+			var sfx = AudioStreamPlayer3D.new()
+			sfx.stream = load("res://sfx/gun-sfx.wav")
+			sfx.pitch_scale = randf_range(0.98, 1.02) # Randomizes pitch between 85% and 115%
+			sfx.volume_db = linear_to_db(0.05)
+			get_tree().current_scene.add_child(sfx)
+			sfx.global_position = global_position
+			sfx.finished.connect(sfx.queue_free)
+			sfx.play()
 
 			var instance = bullet.instantiate()
 			get_tree().current_scene.add_child(instance)

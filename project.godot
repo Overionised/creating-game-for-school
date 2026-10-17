@@ -19,10 +19,12 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicManager="*uid://dbb3n42qtof2w"
+
 [display]
 
-window/size/viewport_width=512
-window/size/viewport_height=300
 window/size/mode=3
 window/stretch/mode="viewport"
 

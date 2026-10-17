@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ga4brol6kes6"]
 
 [ext_resource type="Shader" uid="uid://dtq8vkrpvuqfj" path="res://gridmaterial.tres" id="1_78mpy"]
+[ext_resource type="Script" uid="uid://bap8ekpc5y6tm" path="res://world.gd" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://doh0w0if3r85g" path="res://character.tscn" id="2_7bd7c"]
 [ext_resource type="Script" uid="uid://b40ord251cjl1" path="res://animation.gd" id="3_w4bpu"]
 
@@ -98,6 +99,9 @@ size = Vector3(3, 0.5, 3)
 data = PackedVector3Array(-1.5, -0.25, 1.5, -1.5, -0.25, -1.5, -1.5, 0.25, -1.5, 1.5, -0.25, -1.5, -1.5, -0.25, -1.5, -1.5, -0.25, 1.5, -1.5, 0.25, -1.5, -1.5, -0.25, -1.5, 1.5, -0.25, -1.5, -1.5, 0.25, -1.5, -1.5, 0.25, 1.5, -1.5, -0.25, 1.5, -1.5, -0.25, 1.5, -1.5, 0.25, 1.5, 1.5, 0.25, 1.5, 1.5, 0.25, 1.5, -1.5, 0.25, 1.5, -1.5, 0.25, -1.5, -1.5, -0.25, 1.5, 1.5, -0.25, 1.5, 1.5, -0.25, -1.5, 1.5, 0.25, 1.5, 1.5, -0.25, 1.5, -1.5, -0.25, 1.5, 1.5, -0.25, -1.5, 1.5, -0.25, 1.5, 1.5, 0.25, 1.5, 1.5, -0.25, -1.5, 1.5, 0.25, -1.5, -1.5, 0.25, -1.5, -1.5, 0.25, -1.5, 1.5, 0.25, -1.5, 1.5, 0.25, 1.5, 1.5, 0.25, 1.5, 1.5, 0.25, -1.5, 1.5, -0.25, -1.5)
 
 [node name="World" type="Node3D" unique_id=500693454]
+script = ExtResource("1_aqk2v")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1215698116]
 
 [node name="character" parent="." unique_id=14438740 instance=ExtResource("2_7bd7c")]
 transform = Transform3D(-1, 2.98023e-08, -8.74228e-08, 2.98023e-08, 1, 0, 8.74228e-08, 0, -1, -2.0000005, 1, -7)
